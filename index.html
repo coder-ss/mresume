@@ -2,28 +2,30 @@
 
 <html>
   <head>
-    <meta http-equiv="content-Type" content="text/html; charset=utf-8"/>
-    <meta name="viewpoint" content="width=device-width, inittial-scale=1.0, maximum-scale=1.0,minimum-scale=1.0,user-scaleable=no" />
+
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no" />
     <meta name="apple-touch-fullscreen" content="YES" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black" />
 
     <link type="text/css" href="css/style.css" rel="stylesheet" />
+
   </head>
   <body>
     <div id="warp">
       <ul id="outer">
         <li class="cover">
-          <img src="imgs/shu.jpg">
+          <img id="cover-img" src="imgs/shu.jpg">
           <div>
-            <p class="cover-title" >PHP开发</p>
-            <p class="cover-subtitle">郭尚书的个人简历</p>
+            <p id="cover-title" >PHP开发</p>
+            <p id="cover-subtitle">郭尚书的个人简历</p>
           </div>
         </li>
 
         <li id="aboutme" class="page">
           <div id="aboutme-title" class="page-title">
-            <h2 class="CN">关于我</h2>
-            <h2 class="EN">About Me</h2>
+            <h2 id="aboutme-title-cn" class="CN">关于我</h2>
+            <h2 id="aboutme-title-en" class="EN">About Me</h2>
           </div>
           <div id="aboutme-detail" class="page-detail">
             <p class="page-detail-head">
@@ -78,8 +80,99 @@
           </div>  
         </li>
 
-        <li class="page">
-          <p>第三页</p>
+        <li id="education" class="page">
+          <div id="education-title" class="page-title">
+            <h2 id="education-title-cn" class="CN">教育经历</h2>
+            <h2 id="education-title-en" class="EN">Education</h2>
+          </div>
+          <div id="education-detail" class="page-detail">
+            <div>
+              <div id="education-img1" class="one-third">
+                <img src="imgs/highschool.png" />
+              </div>
+              <div id="education-img2" class="one-third">
+                <img src="imgs/university.png" />
+              </div>
+              <div id="education-img3" class="one-third">
+                <img src="imgs/graduate.png" />
+              </div>
+            </div>
+            <div>
+              <div id="education-text1" class="one-third text">
+                <div class="text-title">高中</div>
+                <div class="text-time">2004-2007</div>
+                <div>湖北省监利县第一中学</div>
+              </div>
+              <div id="education-text2" class="one-third text">              
+                <div class="text-title">大学</div>
+                <div class="text-time">2007-2011</div>
+                <div>武汉理工大学 自动化/车辆工程</div>
+              </div>
+              <div id="education-text3" class="one-third text">
+                <div class="text-title">研究生</div>
+                <div class="text-time">2011-2014</div>
+                <div>华中科技大学 模式识别与智能系统</div>
+              </div>
+            </div>
+          </div>
+        </li>
+
+        <li id="ability" class="page">
+          <div id="ability-title" class="page-title">
+            <h2 id="ability-title-cn" class="CN">专业技能</h2>
+            <h2 id="ability-title-en" class="EN">Ability</h2>
+          </div>
+          <div id="ability-detail" class="page-detail">
+            <table>
+              <tr>
+                <td id="canvas-td">PHP</td>
+                <td><canvas id="canvas-php" class="canvas-ability" height="50"></canvas></td>
+              </tr>
+              <tr>
+                <td>MySQL</td>
+                <td><canvas id="canvas-mysql" class="canvas-ability" height="50"></canvas></td>
+              </tr>
+              <tr>
+                <td>HTML/CSS</td>
+                <td><canvas id="canvas-html" class="canvas-ability" height="50"></canvas></td>
+              </tr>
+              <tr>
+                <td>JS/JQuery</td>
+                <td><canvas id="canvas-js" class="canvas-ability" height="50"></canvas></td>
+              </tr>
+              <tr>
+                <td>Laravel/MVC框架</td>
+                <td><canvas id="canvas-mvc" class="canvas-ability" height="50"></canvas></td>
+              </tr>
+              <tr>
+                <td>Linux</td>
+                <td><canvas id="canvas-linux" class="canvas-ability" height="50"></canvas></td>
+              </tr>
+              <tr>
+                <td>数据结构/算法</td>
+                <td><canvas id="canvas-ds" class="canvas-ability" height="50"></canvas></td>
+              </tr>
+              <tr>
+                <td>C/C++</td>
+                <td><canvas id="canvas-cpp" class="canvas-ability" height="50"></canvas></td>
+              </tr>
+            </table>
+          </div>
+        </li>
+        <li id="experience" class="page">
+          <div id="experience-title" class="page-title">
+            <h2 id="experience-title-cn" class="CN">项目经验</h2>
+            <h2 id="experience-title-en" class="EN">Experience</h2>
+          </div>
+          <div id="experience-detail" class="page-detail">
+            <div class="project">
+              <div class="project-title">
+                基于Nagios的监控系统网站开发
+              </div>
+              <div class="project-detail">
+              </div>
+            </div>
+          </div>
         </li>
       </ul>
     </div>

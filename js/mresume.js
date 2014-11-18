@@ -97,9 +97,11 @@ Resume.prototype.bindDOM = function(){
       if(self.offsetY >= boundary){
         //进入上一页
         self.goIndex('-1');
+        AddAnimation(self.idx);
       }else if(self.offsetY < 0 && self.offsetY < -boundary){
         //进入下一页
         self.goIndex('+1');
+        AddAnimation(self.idx);
       }else{
         self.goIndex('0');
       }
@@ -108,8 +110,10 @@ Resume.prototype.bindDOM = function(){
       //快速移动也能使得翻页
       if(self.offsetY > 50){
         self.goIndex('-1');
+        AddAnimation(self.idx);
       }else if(self.offsetY < -50){
         self.goIndex('+1');
+        AddAnimation(self.idx);
       }else{
         self.goIndex('0');
       }
@@ -166,17 +170,179 @@ new Resume({
   outer : document.getElementById('outer')
 });
 
-// var tmp = document.getElementById('aboutme');
-// console.log(tmp.getElementsByTagName('div')[0].offsetHeight);
 
-var h_aboutme_title = document.getElementById('aboutme-title').offsetHeight;
+//About Me 页面，根据屏幕大小调整间距
 var aboutme_detail = document.getElementById('aboutme-detail');
-var aboutme_tds = aboutme_detail.getElementsByTagName('td');
+var aboutme_tds = document.getElementById('aboutme-detail').getElementsByTagName('td'); //要调整的元素
+var h_aboutme_title = document.getElementById('aboutme-title').offsetHeight;
+var h_aboutme_detail_head = aboutme_detail.getElementsByTagName('p')[0].offsetHeight;
+var h_aboutme_detail_table = aboutme_detail.getElementsByTagName('table')[0].offsetHeight;
 var len = aboutme_tds.length;
-var i = 0;
-var td_height = Math.floor((window.innerHeight - h_aboutme_title) / 14.4);
-console.log('h-title:'+h_aboutme_title);
-console.log('h-detail:'+aboutme_detail.offsetHeight);
-for (i=0; i < len; i++) {
-  aboutme_tds[i].style.lineHeight = td_height + 'px';
+var td_padding = Math.floor((height - h_aboutme_title - h_aboutme_detail_head - h_aboutme_detail_table) / 20);
+
+for (var i=0; i < len; i++) {
+  aboutme_tds[i].style.paddingTop = td_padding + 'px';
+  aboutme_tds[i].style.paddingBottom = td_padding + 'px';
 }
+
+//教育经历页面，根据屏幕大小调整位置
+var education_detail = document.getElementById('education-detail');
+var h_education_title = document.getElementById('education-title').offsetHeight;
+education_detail.style.paddingTop = (window.innerHeight - h_education_title - education_detail.offsetHeight) / 2 + 'px';
+
+
+//专业技能页面
+var ability_detail_canvas = document.getElementById('ability-detail').getElementsByTagName('canvas');
+var h_ability_title = document.getElementById('ability-title').offsetHeight;
+var h_ability_detail_canvas = (height - h_ability_title) / 9;
+
+var len = ability_detail_canvas.length;
+for (var i = 0; i < len; i++) {
+  ability_detail_canvas[i].width = width - document.getElementById('canvas-td').offsetWidth - 40;
+  ability_detail_canvas[i].height = h_ability_detail_canvas;
+};
+
+function drawAbility(mycanvas, value, color) {
+  var canvas = document.getElementById(mycanvas);
+  var ctx = canvas.getContext('2d');
+
+  // console.log(canvas.offsetWidth);
+  var RectW = Math.floor(value / 100 * canvas.offsetWidth);
+
+  ctx.fillStyle = color;
+  ctx.fillRect(0,14,RectW,h_ability_detail_canvas / 2 - 5);
+}
+
+drawAbility('canvas-php', 90, '#5c9beb');
+
+drawAbility('canvas-mysql', 50, '#eb86c0');
+
+drawAbility('canvas-html', 60, '#ec5463');
+
+drawAbility('canvas-js', 40, '#e5e8ed');
+
+drawAbility('canvas-mvc', 60, '#9fd367');
+
+drawAbility('canvas-linux', 50, '#fecd54');
+
+drawAbility('canvas-ds', 60, '#f69292');
+
+drawAbility('canvas-cpp', 70, '#e1a34e');
+
+
+// console.log(document.getElementById('aboutme-detail').style.top);
+// console.log(document.getElementById('aboutme-detail').left);
+
+
+//动画效果
+function AddAnimation(index){
+  switch (index) {
+    case 0:
+      AnimationPage0();
+      break;
+    case 1:
+      AnimationPage1();
+      break;
+    case 2:
+      AnimationPage2();
+      break;
+    case 3:
+      AnimationPage3();
+      break;
+    default:
+      AnimationPage0();
+  }
+}
+//第一页动画
+function AnimationPage0() {
+  if (document.getElementById('cover-img').style.webkitAnimation == 'ani-cover-img 1s') {
+    document.getElementById('cover-img').style.webkitAnimation = 'ani-cover-img2 1s';
+    document.getElementById('cover-title').style.webkitAnimation = 'ani-cover-title2 1s';
+    document.getElementById('cover-title').style.webkitAnimation = 'ani-cover-title2 1s';
+    document.getElementById('cover-subtitle').style.webkitAnimation = 'ani-cover-subtitle2 1s';
+  } else {
+    document.getElementById('cover-img').style.webkitAnimation = 'ani-cover-img 1s';
+    document.getElementById('cover-title').style.webkitAnimation = 'ani-cover-title 1s';
+    document.getElementById('cover-subtitle').style.webkitAnimation = 'ani-cover-subtitle 1s';
+  }
+  // console.log(document.getElementById('cover-img').style.webkitAnimation);
+}
+//第二页动画
+function AnimationPage1() {
+  if (document.getElementById('aboutme-title-cn').style.webkitAnimation == 'ani-page-title-cn 1s') {
+    document.getElementById('aboutme-title-cn').style.webkitAnimation = 'ani-page-title-cn2 1s';
+    document.getElementById('aboutme-title-en').style.webkitAnimation = 'ani-page-title-en2 1s';
+    document.getElementById('aboutme-detail').style.webkitAnimation = 'ani-page-detail2 1s';
+  } else {
+    document.getElementById('aboutme-title-cn').style.webkitAnimation = 'ani-page-title-cn 1s';
+    document.getElementById('aboutme-title-en').style.webkitAnimation = 'ani-page-title-en 1s';
+    document.getElementById('aboutme-detail').style.webkitAnimation = 'ani-page-detail 1s';
+  }
+}
+
+function AnimationPage2() {
+  if (document.getElementById('education-title-cn').style.webkitAnimation == 'ani-page-title-cn 1s') {
+    document.getElementById('education-title-cn').style.webkitAnimation = 'ani-page-title-cn2 1s';
+    document.getElementById('education-title-en').style.webkitAnimation = 'ani-page-title-en2 1s';
+    // document.getElementById('education-detail').style.webkitAnimation = 'ani-page-detail2 1s';
+    document.getElementById('education-text1').style.webkitAnimation = 'ani-page-detail2 1s';
+    document.getElementById('education-text2').style.webkitAnimation = 'ani-page-detail2 1s linear 0.3s';
+    document.getElementById('education-text3').style.webkitAnimation = 'ani-page-detail2 1s linear 0.6s';
+    document.getElementById('education-img1').style.webkitAnimation = 'ani-page-detail2 1s';
+    document.getElementById('education-img2').style.webkitAnimation = 'ani-page-detail2 1s linear 0.3s';
+    document.getElementById('education-img3').style.webkitAnimation = 'ani-page-detail2 1s linear 0.6s';
+
+  } else {
+    document.getElementById('education-title-cn').style.webkitAnimation = 'ani-page-title-cn 1s';
+    document.getElementById('education-title-en').style.webkitAnimation = 'ani-page-title-en 1s';
+    // document.getElementById('education-detail').style.webkitAnimation = 'ani-page-detail 1s';
+    document.getElementById('education-text1').style.webkitAnimation = 'ani-page-detail 1s';
+    document.getElementById('education-text2').style.webkitAnimation = 'ani-page-detail 1s linear 0.3s';
+    document.getElementById('education-text3').style.webkitAnimation = 'ani-page-detail 1s linear 0.6s';
+    document.getElementById('education-img1').style.webkitAnimation = 'ani-page-detail 1s';
+    document.getElementById('education-img2').style.webkitAnimation = 'ani-page-detail 1s linear 0.3s';
+    document.getElementById('education-img3').style.webkitAnimation = 'ani-page-detail 1s linear 0.6s';
+  }
+}
+
+function AnimationPage3() {
+  if (document.getElementById('ability-title-cn').style.webkitAnimation == 'ani-page-title-cn 1s') {
+    document.getElementById('ability-title-cn').style.webkitAnimation = 'ani-page-title-cn2 1s';
+    document.getElementById('ability-title-en').style.webkitAnimation = 'ani-page-title-en2 1s';
+    // document.getElementById('ability-detail').style.webkitAnimation = 'ani-ability-detail2 1s';
+    document.getElementById('canvas-php').style.webkitAnimation = 'ani-ability-canvasphp2 0.8s';
+    document.getElementById('canvas-mysql').style.webkitAnimation = 'ani-ability-canvasmysql2 1.2s';
+    document.getElementById('canvas-html').style.webkitAnimation = 'ani-ability-canvashtml2 1.5s';
+    document.getElementById('canvas-js').style.webkitAnimation = 'ani-ability-canvasjs2 1.8s';
+    document.getElementById('canvas-mvc').style.webkitAnimation = 'ani-ability-canvasmvc2 2.1s';
+    document.getElementById('canvas-linux').style.webkitAnimation = 'ani-ability-canvaslinux2 2.4s';
+    document.getElementById('canvas-ds').style.webkitAnimation = 'ani-ability-canvasds2 2.7s';
+    document.getElementById('canvas-cpp').style.webkitAnimation = 'ani-ability-canvascpp2 3s';
+  } else {
+    document.getElementById('ability-title-cn').style.webkitAnimation = 'ani-page-title-cn 1s';
+    document.getElementById('ability-title-en').style.webkitAnimation = 'ani-page-title-en 1s';
+    // document.getElementById('ability-detail').style.webkitAnimation = 'ani-ability-detail 1s';
+    document.getElementById('canvas-php').style.webkitAnimation = 'ani-ability-canvasphp 0.8s';
+    document.getElementById('canvas-mysql').style.webkitAnimation = 'ani-ability-canvasmysql 1.2s';
+    document.getElementById('canvas-html').style.webkitAnimation = 'ani-ability-canvashtml 1.5s';
+    document.getElementById('canvas-js').style.webkitAnimation = 'ani-ability-canvasjs 1.8s';
+    document.getElementById('canvas-mvc').style.webkitAnimation = 'ani-ability-canvasmvc 2.1s';
+    document.getElementById('canvas-linux').style.webkitAnimation = 'ani-ability-canvaslinux 2.4s';
+    document.getElementById('canvas-ds').style.webkitAnimation = 'ani-ability-canvasds 2.7s';
+    document.getElementById('canvas-cpp').style.webkitAnimation = 'ani-ability-canvascpp 3s';
+  }
+}
+
+function AnimationPage4() {
+  if (document.getElementById('experience-title-cn').style.webkitAnimation == 'ani-page-title-cn 1s') {
+    document.getElementById('experience-title-cn').style.webkitAnimation = 'ani-page-title-cn2 1s';
+    document.getElementById('experience-title-en').style.webkitAnimation = 'ani-page-title-en2 1s';
+    // document.getElementById('experience-detail').style.webkitAnimation = 'ani-experience-detail2 1s';
+  } else {
+    document.getElementById('experience-title-cn').style.webkitAnimation = 'ani-page-title-cn 1s';
+    document.getElementById('experience-title-en').style.webkitAnimation = 'ani-page-title-en 1s';
+    // document.getElementById('experience-detail').style.webkitAnimation = 'ani-experience-detail 1s';
+  }
+}
+
+AddAnimation(0);
