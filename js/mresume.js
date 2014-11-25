@@ -229,6 +229,11 @@ drawAbility('canvas-ds', 60, '#f69292');
 
 drawAbility('canvas-cpp', 70, '#e1a34e');
 
+//项目经验页面
+// var experience_detail = document.getElementById('experience-detail');
+// var h_experience_title = document.getElementById('experience-title').offsetHeight;
+// experience_detail.style.paddingTop = (window.innerHeight - h_experience_title - experience_detail.offsetHeight) / 2 + 'px';
+
 
 // console.log(document.getElementById('aboutme-detail').style.top);
 // console.log(document.getElementById('aboutme-detail').left);
@@ -249,11 +254,14 @@ function AddAnimation(index){
     case 3:
       AnimationPage3();
       break;
+    case 4:
+      AnimationPage4();
+      break;
     default:
       AnimationPage0();
   }
 }
-//第一页动画
+//第一页动画 - 封面
 function AnimationPage0() {
   if (document.getElementById('cover-img').style.webkitAnimation == 'ani-cover-img 1s') {
     document.getElementById('cover-img').style.webkitAnimation = 'ani-cover-img2 1s';
@@ -265,9 +273,8 @@ function AnimationPage0() {
     document.getElementById('cover-title').style.webkitAnimation = 'ani-cover-title 1s';
     document.getElementById('cover-subtitle').style.webkitAnimation = 'ani-cover-subtitle 1s';
   }
-  // console.log(document.getElementById('cover-img').style.webkitAnimation);
 }
-//第二页动画
+//第二页动画 - 关于
 function AnimationPage1() {
   if (document.getElementById('aboutme-title-cn').style.webkitAnimation == 'ani-page-title-cn 1s') {
     document.getElementById('aboutme-title-cn').style.webkitAnimation = 'ani-page-title-cn2 1s';
@@ -279,37 +286,33 @@ function AnimationPage1() {
     document.getElementById('aboutme-detail').style.webkitAnimation = 'ani-page-detail 1s';
   }
 }
-
+//第三页动画 - 教育经历
 function AnimationPage2() {
   if (document.getElementById('education-title-cn').style.webkitAnimation == 'ani-page-title-cn 1s') {
     document.getElementById('education-title-cn').style.webkitAnimation = 'ani-page-title-cn2 1s';
     document.getElementById('education-title-en').style.webkitAnimation = 'ani-page-title-en2 1s';
-    // document.getElementById('education-detail').style.webkitAnimation = 'ani-page-detail2 1s';
-    document.getElementById('education-text1').style.webkitAnimation = 'ani-page-detail2 1s';
-    document.getElementById('education-text2').style.webkitAnimation = 'ani-page-detail2 1s linear 0.3s';
-    document.getElementById('education-text3').style.webkitAnimation = 'ani-page-detail2 1s linear 0.6s';
-    document.getElementById('education-img1').style.webkitAnimation = 'ani-page-detail2 1s';
-    document.getElementById('education-img2').style.webkitAnimation = 'ani-page-detail2 1s linear 0.3s';
-    document.getElementById('education-img3').style.webkitAnimation = 'ani-page-detail2 1s linear 0.6s';
-
+    document.getElementById('education-text1').style.webkitAnimation = 'ani-education-detail2 1s';
+    document.getElementById('education-text2').style.webkitAnimation = 'ani-education-detail-dx2 1.8s';
+    document.getElementById('education-text3').style.webkitAnimation = 'ani-education-detail-yjs2 2.5s';
+    document.getElementById('education-img1').style.webkitAnimation = 'ani-education-detail2 1s';
+    document.getElementById('education-img2').style.webkitAnimation = 'ani-education-detail-dx2 1.8s';
+    document.getElementById('education-img3').style.webkitAnimation = 'ani-education-detail2-yjs2 2.5s';
   } else {
     document.getElementById('education-title-cn').style.webkitAnimation = 'ani-page-title-cn 1s';
     document.getElementById('education-title-en').style.webkitAnimation = 'ani-page-title-en 1s';
-    // document.getElementById('education-detail').style.webkitAnimation = 'ani-page-detail 1s';
-    document.getElementById('education-text1').style.webkitAnimation = 'ani-page-detail 1s';
-    document.getElementById('education-text2').style.webkitAnimation = 'ani-page-detail 1s linear 0.3s';
-    document.getElementById('education-text3').style.webkitAnimation = 'ani-page-detail 1s linear 0.6s';
-    document.getElementById('education-img1').style.webkitAnimation = 'ani-page-detail 1s';
-    document.getElementById('education-img2').style.webkitAnimation = 'ani-page-detail 1s linear 0.3s';
-    document.getElementById('education-img3').style.webkitAnimation = 'ani-page-detail 1s linear 0.6s';
+    document.getElementById('education-text1').style.webkitAnimation = 'ani-education-detail 1s';
+    document.getElementById('education-text2').style.webkitAnimation = 'ani-education-detail-dx 1.8s';
+    document.getElementById('education-text3').style.webkitAnimation = 'ani-education-detail-yjs 2.5s';
+    document.getElementById('education-img1').style.webkitAnimation = 'ani-education-detail 1s';
+    document.getElementById('education-img2').style.webkitAnimation = 'ani-education-detail-dx 1.8s';
+    document.getElementById('education-img3').style.webkitAnimation = 'ani-education-detail-yjs 2.5s';
   }
 }
-
+//第四页动画 - 专业技能
 function AnimationPage3() {
   if (document.getElementById('ability-title-cn').style.webkitAnimation == 'ani-page-title-cn 1s') {
     document.getElementById('ability-title-cn').style.webkitAnimation = 'ani-page-title-cn2 1s';
     document.getElementById('ability-title-en').style.webkitAnimation = 'ani-page-title-en2 1s';
-    // document.getElementById('ability-detail').style.webkitAnimation = 'ani-ability-detail2 1s';
     document.getElementById('canvas-php').style.webkitAnimation = 'ani-ability-canvasphp2 0.8s';
     document.getElementById('canvas-mysql').style.webkitAnimation = 'ani-ability-canvasmysql2 1.2s';
     document.getElementById('canvas-html').style.webkitAnimation = 'ani-ability-canvashtml2 1.5s';
@@ -321,7 +324,6 @@ function AnimationPage3() {
   } else {
     document.getElementById('ability-title-cn').style.webkitAnimation = 'ani-page-title-cn 1s';
     document.getElementById('ability-title-en').style.webkitAnimation = 'ani-page-title-en 1s';
-    // document.getElementById('ability-detail').style.webkitAnimation = 'ani-ability-detail 1s';
     document.getElementById('canvas-php').style.webkitAnimation = 'ani-ability-canvasphp 0.8s';
     document.getElementById('canvas-mysql').style.webkitAnimation = 'ani-ability-canvasmysql 1.2s';
     document.getElementById('canvas-html').style.webkitAnimation = 'ani-ability-canvashtml 1.5s';
@@ -332,16 +334,16 @@ function AnimationPage3() {
     document.getElementById('canvas-cpp').style.webkitAnimation = 'ani-ability-canvascpp 3s';
   }
 }
-
+//第五页动画 - 专业技能
 function AnimationPage4() {
   if (document.getElementById('experience-title-cn').style.webkitAnimation == 'ani-page-title-cn 1s') {
     document.getElementById('experience-title-cn').style.webkitAnimation = 'ani-page-title-cn2 1s';
     document.getElementById('experience-title-en').style.webkitAnimation = 'ani-page-title-en2 1s';
-    // document.getElementById('experience-detail').style.webkitAnimation = 'ani-experience-detail2 1s';
+    document.getElementById('experience-detail').style.webkitAnimation = 'ani-page-detail2 1s';
   } else {
     document.getElementById('experience-title-cn').style.webkitAnimation = 'ani-page-title-cn 1s';
     document.getElementById('experience-title-en').style.webkitAnimation = 'ani-page-title-en 1s';
-    // document.getElementById('experience-detail').style.webkitAnimation = 'ani-experience-detail 1s';
+    document.getElementById('experience-detail').style.webkitAnimation = 'ani-page-detail 1s';
   }
 }
 

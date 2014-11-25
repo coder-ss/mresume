@@ -139,6 +139,20 @@ li{
   padding-right: 10px;
 }
 
+.project {
+  padding-left: 6px;
+  padding-right: 6px;
+}
+.project > .project-title {
+  padding-top: 15px;
+  padding-bottom: 15px;
+  font-weight: bold;
+  font-size: 16px;
+}
+.project > .project-detail > div {
+  padding-bottom: 8px;
+}
+
 
 @-webkit-keyframes ani-cover-img
 {
@@ -238,6 +252,41 @@ li{
 {
   from {-webkit-transform: translate(0, 720px)}
   to {-webkit-transform: translate(0, 0)}
+}
+
+@-webkit-keyframes ani-education-detail
+{
+  from {-webkit-transform: translate(0, 720px)}
+  to {-webkit-transform: translate(0, 0)}
+}
+@-webkit-keyframes ani-education-detail2
+{
+  from {-webkit-transform: translate(0, 720px)}
+  to {-webkit-transform: translate(0, 0)}
+}
+@-webkit-keyframes ani-education-detail-dx
+{
+  0% {-webkit-transform: translate(0, 720px)}
+  30% {-webkit-transform: translate(0, 720px)}
+  100% {-webkit-transform: translate(0, 0)}
+}
+@-webkit-keyframes ani-education-detail-dx2
+{
+  0% {-webkit-transform: translate(0, 720px)}
+  30% {-webkit-transform: translate(0, 720px)}
+  100% {-webkit-transform: translate(0, 0)}
+}
+@-webkit-keyframes ani-education-detail-yjs
+{
+  0% {-webkit-transform: translate(0, 720px)}
+  30% {-webkit-transform: translate(0, 720px)}
+  100% {-webkit-transform: translate(0, 0)}
+}
+@-webkit-keyframes ani-education-detail-yjs2
+{
+  0% {-webkit-transform: translate(0, 720px)}
+  60% {-webkit-transform: translate(0, 720px)}
+  100% {-webkit-transform: translate(0, 0)}
 }
 
 @-webkit-keyframes ani-ability-detail
